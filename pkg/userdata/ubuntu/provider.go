@@ -155,6 +155,8 @@ write_files:
     #!/bin/bash
     set -xeuo pipefail
 
+	apt-get purge -y 'snap* lxc*'
+
     wget -q https://github.com/k0sproject/k0s/releases/download/v0.8.1/k0s-v0.8.1-amd64 -O /usr/bin/k0s
     chmod +x /usr/bin/k0s
 
