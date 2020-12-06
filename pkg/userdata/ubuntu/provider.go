@@ -188,7 +188,7 @@ write_files:
 	Delegate=yes
 	{{- if eq .ExternalCloudProvider true }}
 	ExecStart=/usr/bin/k0s worker --enable-cloud-provider=true --token-file /etc/k0s/kubeconfig-base64
-	{{ else }}
+	{{- else }}
 	ExecStart=/usr/bin/k0s worker --token-file /etc/k0s/kubeconfig-base64
 	{{- end }}
     LimitNOFILE=1048576
