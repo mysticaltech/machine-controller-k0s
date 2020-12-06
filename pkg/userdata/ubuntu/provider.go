@@ -155,6 +155,8 @@ write_files:
     #!/bin/bash
     set -xeuo pipefail
 
+    DEBIAN_FRONTEND=noninteractive apt autoremove --purge snapd
+
     wget -q https://github.com/k0sproject/k0s/releases/download/v0.8.1/k0s-v0.8.1-amd64 -O /usr/bin/k0s
     chmod +x /usr/bin/k0s
 
@@ -185,8 +187,8 @@ write_files:
 
     [Service]
     KillMode=process
-	Delegate=yes
-	ExecStart=/usr/bin/k0s worker {{ if .ExternalCloudProvider }} --enable-cloud-provider=true {{ end }} --token-file /etc/k0s/kubeconfig-base64
+    Delegate=yes
+    ExecStart=/usr/bin/k0s worker {{ if .ExternalCloudProvider }} --enable-cloud-provider=true {{ end }} --token-file /etc/k0s/kubeconfig-base64
     LimitNOFILE=1048576
     LimitNPROC=infinity
     LimitCORE=infinity
