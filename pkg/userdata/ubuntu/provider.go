@@ -200,13 +200,7 @@ write_files:
 
 
     [Install]
-    WantedBy=multi-user.target
-
-
-- path: "/etc/k0s/cloud-config"
-	permissions: "0600"
-	content: |
-{{ .CloudConfig | indent 4 }}
+	WantedBy=multi-user.target
 
 - path: "/etc/k0s/kubeconfig"
   permissions: "0600"
