@@ -186,12 +186,12 @@ write_files:
     [Service]
     KillMode=process
 	Delegate=yes
-	{{ if eq .ExternalCloudProvider true }}
+{{ if eq .ExternalCloudProvider true }}
 	ExecStart=/usr/bin/k0s worker --enable-cloud-provider=true --token-file /etc/k0s/kubeconfig-base64
-	{{ end }}
-	{{ if eq .ExternalCloudProvider false }}
+{{ end }}
+{{ if eq .ExternalCloudProvider false }}
 	ExecStart=/usr/bin/k0s worker --token-file /etc/k0s/kubeconfig-base64
-	{{ end }}
+{{ end }}
     LimitNOFILE=1048576
     LimitNPROC=infinity
     LimitCORE=infinity
@@ -207,6 +207,11 @@ write_files:
     [Install]
     WantedBy=multi-user.target
 
+
+- path: "/etc/k0s/cloud-config"
+	permissions: "0600"
+	content: |
+  {{ .CloudConfig | indent 4 }}
 
 - path: "/etc/k0s/kubeconfig"
   permissions: "0600"
