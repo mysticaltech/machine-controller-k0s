@@ -206,7 +206,7 @@ write_files:
 - path: "/etc/k0s/cloud-config"
 	permissions: "0600"
 	content: |
-  {{ .CloudConfig | indent 4 }}
+{{ .CloudConfig | indent 4 }}
 
 - path: "/etc/k0s/kubeconfig"
   permissions: "0600"
