@@ -187,7 +187,7 @@ write_files:
     KillMode=process
 	Delegate=yes
 	{{- if eq .ExternalCloudProvider true }}
-	ExecStart=/usr/bin/k0s worker --cloud-provider=true --token-file /etc/k0s/kubeconfig-base64
+	ExecStart=/usr/bin/k0s worker --enable-cloud-provider=true --token-file /etc/k0s/kubeconfig-base64
 	{{ else }}
 	ExecStart=/usr/bin/k0s worker --token-file /etc/k0s/kubeconfig-base64
 	{{- end }}
