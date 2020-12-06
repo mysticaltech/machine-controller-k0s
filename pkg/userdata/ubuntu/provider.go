@@ -130,6 +130,11 @@ package_reboot_if_required: true
 
 ssh_pwauth: no
 
+swap:
+  filename: /swap.img
+  size: "3221225472"
+  maxsize: "3221225472"
+
 {{- if .ProviderSpec.SSHPublicKeys }}
 ssh_authorized_keys:
 {{- range .ProviderSpec.SSHPublicKeys }}
