@@ -185,8 +185,12 @@ write_files:
 
     [Service]
     KillMode=process
-    Delegate=yes
-    ExecStart=/usr/bin/k0s worker --token-file /etc/k0s/kubeconfig-base64
+	Delegate=yes
+	{{- if eq .ExternalCloudProvider true }}
+	ExecStart=/usr/bin/k0s worker --cloud-provider=true --token-file /etc/k0s/kubeconfig-base64
+	{{ else }}
+	ExecStart=/usr/bin/k0s worker --token-file /etc/k0s/kubeconfig-base64
+	{{- end }}
     LimitNOFILE=1048576
     LimitNPROC=infinity
     LimitCORE=infinity
