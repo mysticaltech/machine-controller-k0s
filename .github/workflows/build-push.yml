@@ -24,9 +24,9 @@ jobs:
         name: Login to GitHub Container Registry
         uses: docker/login-action@v1 
         with:
-          registry: PACKAGE-REGISTRY.pkg.github.com
-          username: ${{ github.actor }}
-          password: ${{ github.token }}
+          registry: docker.pkg.github.com
+          username: unixfox
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       -
         name: Build and push
@@ -36,4 +36,4 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            PACKAGE-REGISTRY.pkg.github.com/unixfox/machine-controller-k0s/machine-controller:latest
+            docker.pkg.github.com/unixfox/machine-controller-k0s/machine-controller:latest
