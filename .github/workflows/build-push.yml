@@ -36,4 +36,4 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            docker.pkg.github.com/unixfox/machine-controller-k0s:latest
+            docker.pkg.github.com/unixfox/machine-controller-k0s/machine-controller:latest
