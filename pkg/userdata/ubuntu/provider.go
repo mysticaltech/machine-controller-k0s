@@ -167,7 +167,6 @@ write_files:
 
     DEBIAN_FRONTEND=noninteractive apt-get -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" install -y \
       curl \
-      wireguard \
       {{- if eq .CloudProviderName "vsphere" }}
       open-vm-tools \
       {{- end }}
