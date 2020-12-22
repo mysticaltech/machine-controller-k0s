@@ -162,7 +162,7 @@ write_files:
 
     DEBIAN_FRONTEND=noninteractive apt autoremove -y --purge snapd
 
-    wget -q https://github.com/k0sproject/k0s/releases/download/v0.8.1/k0s-v0.8.1-amd64 -O /usr/bin/k0s
+    wget -q https://github.com/k0sproject/k0s/releases/download/v0.9.0-rc1/k0s-v0.9.0-rc1-amd64 -O /usr/bin/k0s
     chmod +x /usr/bin/k0s
 
     DEBIAN_FRONTEND=noninteractive apt-get -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" install -y \
